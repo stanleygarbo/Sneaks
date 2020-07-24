@@ -1,0 +1,10 @@
+export const colors = {
+    COLOR_PRIMARY:'rgb(255,255,255)',
+    COLOR_PRIMARY_TRANSLUCENT:'rgba(255,255,255,0.5)',
+    COLOR_PRIMARY_DARK:'#d4d4d4',
+    COLOR_PRIMARY_DARK_T:'rgba(0,0,0,0.1)',
+    COLOR_ACCENT:'rgb(60,99,227)',
+    COLOR_ACCENT_TRANSLUCENT:'rgba(60,99,227,0.2)',
+    COLOR_ACCENT_TWO: '#0e5ce4',
+    COLOR_SHADOW:'rgba(0,0,0,0.3)',
+}
