@@ -14,7 +14,7 @@ const styles = css`
         height:100vh;
         top:0;
         left:0;
-        z-index:1;
+        z-index:100;
     }
     .cart__backdrop{
         position:absolute;
@@ -23,6 +23,7 @@ const styles = css`
         top:0;
         left:0;
     }
+
     .cart{
         position:absolute;
         right:20px;

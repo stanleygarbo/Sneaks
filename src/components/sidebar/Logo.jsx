@@ -1,32 +1,31 @@
-import Hamburger from './Hamburger'
 import css from 'styled-jsx/css'
-import {colors} from '../../../styles/colors'
+import {colors} from '../../styles/colors'
 
 const styles = css`
-    .left{
+    div{
         box-sizing: border-box;
         padding: 0px 15px;
         width:220px;
         display:flex;
         background:${colors.COLOR_ACCENT};
-        height:100%;
         place-items:center;
+        height:60px;
     }
     .logo{
-        letter-spacing:10px;
+        letter-spacing:20px;
         color:${colors.COLOR_PRIMARY};
         font-weight:600;
     }
 ` 
 
-const Left = () => {
+
+const Logo = () => {
     return (
-        <div className='left'>
-            <Hamburger />
+        <div>
             <p className='logo'>GARBO.</p>
             <style jsx>{styles}</style>
         </div>
     )
 }
 
-export default Left
+export default Logo

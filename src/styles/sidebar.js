@@ -5,13 +5,12 @@ export default css.NavBar`
     nav{
         height: 100vh;
         width:220px;
-        background: ${colors.COLOR_ACCENT};
+        background: linear-gradient(${colors.COLOR_ACCENT},${colors.COLOR_ACCENT_TWO});
         position:fixed;
         top:0;
         left:0;
-        padding-top:60px;
         transition: .3s ease-in-out;
-        z-index:0;
+        z-index:1;
         overflow:hidden;
     }
     .show__menu{
@@ -26,7 +25,7 @@ export default css.NavBar`
         left:0;
         top:20vh;
         background:linear-gradient(45deg,${colors.COLOR_PRIMARY_TRANSLUCENT},transparent);
-        opacity:0.21;
+        opacity:0.3;
         width:200px;
         height:200px;
         border-radius:100%;
@@ -37,7 +36,7 @@ export default css.NavBar`
         left:0;
         top:50vh;
         background:${colors.COLOR_PRIMARY_TRANSLUCENT};
-        opacity:0.1;
+        opacity:0.2;
         width:200px;
         height:200px;
         transform:rotate(45deg);

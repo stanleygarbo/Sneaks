@@ -1,5 +1,5 @@
 import TopBarLinks from './TopBarLinks'
-import SearchField from './SearchField'
+import SearchField from './searchfield/SearchField'
 import CartButton from './cart/CartButton'
 import css from 'styled-jsx/css'
 import Cart from './cart/Cart'
@@ -24,7 +24,7 @@ const Right = () => {
         <div className='right'>
             <SearchField />
             <ul>
-                <TopBarLinks name='Home' href='/' as='/' />
+                <TopBarLinks name='Home' href='/' as='/' icon='home' />
             </ul>
             <CartButton/>
             <Cart/>

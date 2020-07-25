@@ -1,6 +1,6 @@
 export const colors = {
     COLOR_PRIMARY:'rgb(255,255,255)',
-    COLOR_PRIMARY_TRANSLUCENT:'rgba(255,255,255,0.5)',
+    COLOR_PRIMARY_TRANSLUCENT:'rgba(255,255,255,0.2)',
     COLOR_PRIMARY_DARK:'#d4d4d4',
     COLOR_PRIMARY_DARK_T:'rgba(0,0,0,0.1)',
     COLOR_ACCENT:'rgb(60,99,227)',
