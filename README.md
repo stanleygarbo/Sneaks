@@ -1,7 +1,7 @@
-## An E-commerce project
+# An E-commerce project
 
-this was built using next js, currently undone
+this was built using **nextJS**, currently undone
 
-### Visit the demo
+## Visit the demo
 
 https://sneaks.vercel.app
