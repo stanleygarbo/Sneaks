@@ -8,7 +8,6 @@ const ShowCartContextProvider = ({children}) => {
     useEffect(()=>{
         if(showCart===true){
             document.body.style.overflowY = 'hidden'
-            console.log('ss')
         }
         else{
             document.body.style.overflowY = 'scroll'

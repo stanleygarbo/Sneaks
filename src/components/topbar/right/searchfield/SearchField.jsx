@@ -18,6 +18,7 @@ const style = css`
         outline:none;
         border-bottom:1px solid ${colors.COLOR_PRIMARY_DARK};
         font-size: 17px;
+        height:40px;
     }
     label{
         position:absolute;
@@ -54,11 +55,12 @@ const style = css`
         border: 1px solid ${colors.COLOR_ACCENT};
         color: ${colors.COLOR_ACCENT};
         border-radius:50px;
-        padding: 0 15px;
         cursor:pointer;
         font-size:20px;
         display:flex;
         place-items:center;
+        width:45px;
+        height:45px;
     }
     .open:hover{
         background: ${colors.COLOR_ACCENT_TRANSLUCENT};
@@ -102,18 +104,18 @@ const style = css`
 `
 
 const SearchField = () => {
-    const {windowSizeSmall} = useContext(WindowSizeContext)
-    const {showMenu,setShowMenu} = useContext(MenuContext)
+    const {windowSize} = useContext(WindowSizeContext)
+    const {setShowMenu} = useContext(MenuContext)
     const [showForm,setShowForm] = useState(false)
 
-    if(!windowSizeSmall || showForm)
+    if(!windowSize.onlyShowBtnIcons|| showForm)
     return (
-        <form className={windowSizeSmall ? 'floating__form' : 'form'}>
+        <form className={windowSize.onlyShowBtnIcons ? 'floating__form' : 'form'}>
             <input id='search' type="text" required />
             <label htmlFor="search">What are you looking for?</label>
             <span className='from__left'></span>
             <span className='from__right'></span>
-            {showForm && windowSizeSmall &&
+            {showForm && windowSize.onlyShowBtnIcons &&
             <button className='close material-icons' type='button'
                 onClick={()=>setShowForm(false)}
             >close</button> }
@@ -122,7 +124,7 @@ const SearchField = () => {
     )
     return(
         <button className='open' onClick={()=>{setShowForm(true),setShowMenu(false)}}><i className='material-icons'>search</i>
-            {!windowSizeSmall && 'Search'}
+            {!windowSize.onlyShowBtnIcons && 'Search'}
             <style jsx>{style}</style>
         </button> 
     )

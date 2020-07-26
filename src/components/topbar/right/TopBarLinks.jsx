@@ -13,12 +13,17 @@ const style = css`
         padding:8px 20px;
         border: 1px solid ${colors.COLOR_PRIMARY_DARK};
         display:flex;
-        place-items:center;
+        justify-content:center;
+        align-items:center;
         font-size:18px;
+    }
+    .small{
+        width:45px;
+        height:45px;
+        padding:0;
     }
     a i{
         font-size:23px;
-        padding:0 5px;
         font-weight:900;
     }
     .active{
@@ -37,14 +42,15 @@ const style = css`
 
 const TopBarLinks = ({href,as,name,icon}) => {
     const router = useRouter()
-    const {windowSizeSmall} = useContext(WindowSizeContext)
+    const {windowSize} = useContext(WindowSizeContext)
+
 
     return(
         <li>
             <Link as={`${as}`} href={href}>
-                <a className={router.asPath === href?'active':'inactive'}>
+                <a className={`${windowSize.onlyShowBtnIcons && 'small'} ${router.asPath === href?'active':'inactive'}`}>
                     {icon && <i className='material-icons'>{icon}</i>}
-                    {!windowSizeSmall && name}
+                    {!windowSize.onlyShowBtnIcons && name}
                 </a>
             </Link>
             <style jsx>{style}</style>

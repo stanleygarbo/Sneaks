@@ -7,12 +7,11 @@ import {colors} from '../../../../styles/colors'
 const style = css`
     .cart{
         position:relative;
-        width:35px;
-        height:35px;
+        width:45px;
+        height:45px;
         display:grid;
         place-items:center;
         background:${colors.COLOR_PRIMARY_DARK_T};
-        margin: 0px 10px;
         cursor:pointer;
         border-radius:50px;
     }

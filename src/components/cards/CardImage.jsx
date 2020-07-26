@@ -12,7 +12,7 @@ const style = css`
 const CardImage = ({imageUrl}) => {
     return (
         <div style={{
-            // backgroundImage:`url(${imageUrl})`
+            backgroundImage:`url(${imageUrl})`
         }}>
             <style jsx>{style}</style>
         </div>

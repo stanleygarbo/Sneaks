@@ -28,7 +28,7 @@ const styles = css`
         position:absolute;
         right:20px;
         top:10px;
-        width:350px;
+        width:320px;
         background:linear-gradient(45deg,${colors.COLOR_ACCENT},${colors.COLOR_ACCENT_TWO});
         border-radius:10px;
         z-index:1;

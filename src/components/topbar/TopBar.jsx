@@ -26,7 +26,7 @@ const style = css`
 
 const TopBar = () => {
     const {showMenu,setShowMenu} = useContext(MenuContext)
-    const {windowSizeSmall,setWindowSizeSmall} = useContext(WindowSizeContext)
+    const {dispatch} = useContext(WindowSizeContext)
     
     useEffect(() => {
         window.addEventListener('resize',resized)
@@ -35,19 +35,20 @@ const TopBar = () => {
     }, [])
 
     const resized = () =>{
-        console.log(window.innerWidth)
         if(window.innerWidth <= 1070){
-            setWindowSizeSmall(true)
+            dispatch({type:'SET_ONLY_SHOW_BTN_ICONS',payload:true })
         }
         else{
-            setWindowSizeSmall(false)
+            dispatch({type:'SET_ONLY_SHOW_BTN_ICONS',payload:false })
         }
 
         if(window.innerWidth <=740){
             setShowMenu(false)
+            dispatch({type:'FORCE_HIDE_MENU',payload:false })
         }
         else{
             setShowMenu(true)
+            dispatch({type:'FORCE_HIDE_MENU',payload:true })
         }
 
     }
@@ -56,10 +57,6 @@ const TopBar = () => {
         <nav style={{paddingLeft:showMenu && '220px'}}>
             <Hamburger />
             <Right />
-            {
-            console.log(windowSizeSmall)
-
-            }
             <style jsx>{style}</style>
         </nav>
     )

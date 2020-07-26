@@ -6,8 +6,9 @@ import Cart from './cart/Cart'
 
 const styles = css`
     .right{
-        padding: 0px 15px;
+        padding: 0px 15px 0px 0px;
         display:flex;
+        align-items:center;
     }
     
     ul{
