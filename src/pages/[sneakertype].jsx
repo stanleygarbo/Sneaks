@@ -11,7 +11,6 @@ const sneakertype = ({sneakers}) => {
                 <title>Sneaks | {sneakers.results[0]?.brand} sneakers</title>
                 <meta name='description' content={`${sneakers.results[0]?.brand} sneakers`} />
             </Head>
-            {console.log(sneakers)}
             {sneakers && <Cards sneakers={sneakers} />}
         </Layout>
     )
@@ -19,7 +18,6 @@ const sneakertype = ({sneakers}) => {
 
 sneakertype.getInitialProps = async (ctx) =>{
     let { query } = ctx
-    console.log(query.sneakertype)
     const url = `https://api.thesneakerdatabase.com/v1/sneakers?limit=20&brand=${query.sneakertype}`
     const res = await axios(url)
     return { sneakers: res.data }

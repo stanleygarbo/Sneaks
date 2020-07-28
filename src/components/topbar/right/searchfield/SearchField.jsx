@@ -3,6 +3,7 @@ import css from 'styled-jsx/css'
 import {colors} from '../../../../styles/colors'
 import {WindowSizeContext} from '../../../../contexts/WindowSizeContextProvider'
 import { MenuContext } from '../../../../contexts/MenuContextProvider'
+import {useRouter} from 'next/router'
 
 const style = css`
     .form{
@@ -79,6 +80,8 @@ const style = css`
         display:flex;
         z-index:3;
     }
+
+
     .floating__form label{
         bottom:15px;
         left:10px;
@@ -107,11 +110,17 @@ const SearchField = () => {
     const {windowSize} = useContext(WindowSizeContext)
     const {setShowMenu} = useContext(MenuContext)
     const [showForm,setShowForm] = useState(false)
+    const router = useRouter()
+
+    const searchFor=(e)=>{
+        e.preventDefault()
+        router.push(`/search/${e.target['searchInput'].value}`)
+    }
 
     if(!windowSize.onlyShowBtnIcons|| showForm)
     return (
-        <form className={windowSize.onlyShowBtnIcons ? 'floating__form' : 'form'}>
-            <input id='search' type="text" required />
+        <form className={windowSize.onlyShowBtnIcons ? 'floating__form' : 'form'} onSubmit={searchFor} >
+            <input id='search' name='searchInput' type="text" required autoComplete='off' />
             <label htmlFor="search">What are you looking for?</label>
             <span className='from__left'></span>
             <span className='from__right'></span>

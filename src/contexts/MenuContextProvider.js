@@ -1,9 +1,9 @@
 import {createContext,useState} from 'react'
 
-export const MenuContext = createContext({showMenu:true,setShowMenu:()=>{},})
+export const MenuContext = createContext({showMenu:false,setShowMenu:()=>{},})
 
 const MenuContextProvider = ({children}) =>{
-    const [showMenu,setShowMenu] = useState(true)
+    const [showMenu,setShowMenu] = useState(false)
 
     return (
         <MenuContext.Provider value={{showMenu,setShowMenu}}>

@@ -1,4 +1,4 @@
-import {useContext, useEffect} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import css from 'styled-jsx/css'
 import {colors} from '../../styles/colors'
 import Right from './right/Right'
@@ -10,7 +10,7 @@ const style = css`
     nav{
         width:100%;
         z-index:1;
-        height:60px;
+        height:70px;
         position:fixed;
         top:0;
         left:0;
@@ -25,6 +25,7 @@ const style = css`
 `
 
 const TopBar = () => {
+    const [windowSize, setWindowSize] = useState()
     const {showMenu,setShowMenu} = useContext(MenuContext)
     const {dispatch} = useContext(WindowSizeContext)
     
@@ -34,15 +35,16 @@ const TopBar = () => {
         return () => window.removeEventListener('resize',resized)
     }, [])
 
-    const resized = () =>{
-        if(window.innerWidth <= 1070){
+    useEffect(()=>{
+        if(windowSize < 1070 ){
             dispatch({type:'SET_ONLY_SHOW_BTN_ICONS',payload:true })
         }
-        else{
+        else if(windowSize > 1070 ){
             dispatch({type:'SET_ONLY_SHOW_BTN_ICONS',payload:false })
         }
 
-        if(window.innerWidth <=740){
+        
+        if(windowSize <=740){
             setShowMenu(false)
             dispatch({type:'FORCE_HIDE_MENU',payload:false })
         }
@@ -50,7 +52,10 @@ const TopBar = () => {
             setShowMenu(true)
             dispatch({type:'FORCE_HIDE_MENU',payload:true })
         }
+    },[windowSize])
 
+    const resized = () =>{
+        setWindowSize(window.innerWidth)
     }
 
     return (

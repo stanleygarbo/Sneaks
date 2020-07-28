@@ -10,6 +10,13 @@ export const CartContextReducer = (state,action) => {
                 items:[...state.items,action.payload],
                 total: state.total+parseInt(action.payload.retailPrice)
             }
+        case 'REMOVE_FROM_CART':
+            let newArr = state.items
+            newArr.splice(action.payload.index,1)
+            return{
+                items:newArr,
+                total: state.total-parseInt(action.payload.retailPrice)
+            }
         default:
             return state
     }
